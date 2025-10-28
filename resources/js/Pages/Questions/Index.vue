@@ -1,11 +1,14 @@
 <template>
       <h1>Welcome!</h1>
       <div v-for="question in questions" :key="question.id">
+      <Link :href="`/question/${question.id}`">
             {{ question.title }}
+      </Link>
       </div>
 </template>
 
 <script setup>
+import { Link } from "@inertiajs/vue3";
 defineProps({
       questions: {
             type: Array,
