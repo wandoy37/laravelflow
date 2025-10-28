@@ -1,4 +1,4 @@
-import path, { resolve } from 'path';
+import path from 'path'
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
