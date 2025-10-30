@@ -1,7 +1,7 @@
 <template>
       <h1>Welcome!</h1>
       <div v-for="question in questions" :key="question.id">
-      <Link :href="`/question/${question.id}`">
+      <Link :href="route('questions.show', question.id)">
             {{ question.title }}
       </Link>
       </div>

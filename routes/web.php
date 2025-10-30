@@ -10,10 +10,10 @@ Route::get('/', function () {
                 ['id' => 2, 'title' => 'Questions 2'],
             ]
     ]);
-});
+})->name('questions.index');
 
 Route::get('/question/{id}', function ($id) {
     return inertia('Questions/Show', [
         'question' => ['id', $id, 'title' => 'Question ' . $id]
     ]);
-});
+})->name('questions.show');
