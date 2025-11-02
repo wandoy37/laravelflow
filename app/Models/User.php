@@ -55,6 +55,6 @@ class User extends Authenticatable
     {
         $email  = strtolower(trim($this->email));
         $hash = hash('sha256', $email);
-        return "https://www.gravatar.com/avatar" . $hash;
+        return "https://www.gravatar.com/avatar/" . $hash;
     }
 }
