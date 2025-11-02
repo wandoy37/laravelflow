@@ -9,6 +9,8 @@ Route::get('/', function () {
     $questions = QuestionsResource::collection(
         Questions::with('user')->latest()->paginate(15)
     );
+
+    // return $questions;
     return inertia('Questions/Index', [
             'questions' => $questions
     ]);

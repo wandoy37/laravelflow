@@ -13,25 +13,8 @@
                                     </ul>
                               </div>
 
-                              <nav class="mt-4" aria-label="Pagination">
-                                    <ul class="pagination pagination-sm justify-content-center">
-                                          <li class="page-item disabled">
-                                                <a class="page-link" href="#">Previous</a>
-                                          </li>
-                                          <li class="page-item active">
-                                                <a class="page-link" href="#">1</a>
-                                          </li>
-                                          <li class="page-item">
-                                                <a class="page-link" href="#">2</a>
-                                          </li>
-                                          <li class="page-item">
-                                                <a class="page-link" href="#">3</a>
-                                          </li>
-                                          <li class="page-item">
-                                                <a class="page-link" href="#">Next</a>
-                                          </li>
-                                    </ul>
-                              </nav>
+                              <Pagination :meta="questions.meta" />
+
                         </div>
                         <div class="col-md-3">
                               <div class="d-grid">
@@ -161,6 +144,7 @@
 import { Link, Head } from "@inertiajs/vue3";
 import AppLayout from "../../Layouts/AppLayout.vue";
 import QuestionSummary from "../../Components/Questions/QuestionSummary.vue";
+import Pagination from "../../Components/Pagination.vue";
 defineProps({
       questions: {
             type: Object,
