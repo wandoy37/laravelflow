@@ -1,6 +1,10 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue'
 
+const page = usePage()
+const userName = computed(() => page.props.user.name)
+const isLoggedIn = computed(() => page.props.user)
 </script>
 
 <template>
@@ -23,10 +27,10 @@ import { Link } from '@inertiajs/vue3';
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" v-if="isLoggedIn">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            John doe
+                            {{ userName }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
@@ -40,7 +44,7 @@ import { Link } from '@inertiajs/vue3';
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-else>
                         <Link :href="route('login')" class="btn btn-outline-secondary me-2">Log in</Link>
                         <Link :href="route('register')" class="btn btn-primary">Sign up</Link>
                     </li>
