@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Resources\QuestionsResource;
 use App\Models\Questions;
 use Illuminate\Http\Request;
@@ -34,9 +35,13 @@ class QuestionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreQuestionRequest $request)
     {
-        //
+        $request->user()->questions()->create(
+            $request->validated()
+        );
+
+        return back()->with('success', "Your question submitted successfully.");
     }
 
     /**

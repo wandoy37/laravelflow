@@ -53,7 +53,7 @@
                   </div>
             </div>
             <Modal id="question-modal" title="Ask Question" size="large" scrollable>
-                  <QuestionForm />
+                  <QuestionForm @success="hideModal" />
             </Modal>
       </AppLayout>
       <Head title="All Questions" />
