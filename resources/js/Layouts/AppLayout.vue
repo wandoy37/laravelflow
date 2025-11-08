@@ -30,5 +30,5 @@ const showToast = () => state.toastRef.show()
     <main class="py-4">
         <slot />
     </main>
-    <Toast id="app-toast" message="state.toastMessage" />
+    <Toast id="app-toast" :message="state.toastMessage" />
 </template>
