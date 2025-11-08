@@ -52,7 +52,7 @@
                         </div>
                   </div>
             </div>
-            <Modal id="question-modal" title="Ask Question">
+            <Modal id="question-modal" title="Ask Question" size="large" scrollable>
                   <QuestionForm />
             </Modal>
       </AppLayout>
