@@ -1,12 +1,34 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-const form = useForm({
-      title: '',
-      body: ''
+
+const props = defineProps({
+      question: {
+            type: Object,
+            required: true
+      },
+      method: String,
+      action: {
+            type: String,
+            required: true
+      }
 })
+
+const fromData = {
+      title: props.question.title,
+      body: props.question.body,
+      id: props.question.id
+}
+
+if (props.method) {
+      fromData._method = props.method
+}
+
+const form = useForm(fromData)
+
 const emit = defineEmits(['success'])
+
 const submit = () => {
-      form.post(route('questions.store'), {
+      form.post(props.action, {
             onSuccess: () => {
                   form.reset()
                   emit('success')
@@ -65,7 +87,7 @@ const submit = () => {
             </div>
             <div class="d-flex justify-content-end">
                   <button type="button" class="btn btn-outline-secondary me-2" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Post</button>
+                  <button type="submit" class="btn btn-primary">{{ question.id ? "Update" : "Post" }}</button>
             </div>
       </form>
 </template>

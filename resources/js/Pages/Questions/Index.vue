@@ -53,7 +53,7 @@
                   </div>
             </div>
             <Modal id="question-modal" :title="state.modalTitle" size="large" scrollable>
-                  <QuestionForm @success="hideModal" />
+                  <CreateQuestionForm :question="question" @success="hideModal" />
             </Modal>
       </AppLayout>
       <Head title="All Questions" />
@@ -67,7 +67,7 @@ import AppLayout from "../../Layouts/AppLayout.vue";
 import QuestionSummary from "../../Components/Questions/QuestionSummary.vue";
 import Pagination from "../../Components/Pagination.vue";
 import Modal from "../../Components/Modal.vue";
-import QuestionForm from "../../Components/Questions/QuestionForm.vue";
+import CreateQuestionForm from '../../Components/Questions/CreateQuestionForm.vue';
 defineProps({
       questions: {
             type: Object,
@@ -78,6 +78,12 @@ defineProps({
 const state = reactive({
       modalRef: null,
       modalTitle: "Ask Question"
+})
+
+const question = reactive({
+      id: null,
+      title: null,
+      body: null
 })
 
 onMounted(() => {
